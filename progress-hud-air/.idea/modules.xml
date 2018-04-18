@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/progress-hud/progress-hud.iml" filepath="$PROJECT_DIR$/progress-hud/progress-hud.iml" />
+      <module fileurl="file://$PROJECT_DIR$/progress-hud-debug/progress-hud-debug.iml" filepath="$PROJECT_DIR$/progress-hud-debug/progress-hud-debug.iml" />
+    </modules>
+  </component>
+</project>

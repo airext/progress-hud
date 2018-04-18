@@ -1,0 +1,12 @@
+<platform xmlns="http://ns.adobe.com/air/extension/24.0">
+    <description></description> 
+    <packagedDependencies>
+        <packagedDependency>HockeySDK.jar</packagedDependency>
+    </packagedDependencies>
+    <packagedResources>
+        <packagedResource>
+            <packageName>net.hockeyapp.android</packageName>
+            <folderName>res</folderName>
+        </packagedResource>
+    </packagedResources>
+</platform>

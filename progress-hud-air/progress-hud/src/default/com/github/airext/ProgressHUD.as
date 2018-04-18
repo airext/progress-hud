@@ -1,0 +1,60 @@
+/**
+ * Created by max.rozdobudko@gmail.com on 4/18/18.
+ */
+package com.github.airext {
+import com.github.airext.core.progress_hud;
+
+import flash.system.Capabilities;
+
+use namespace progress_hud;
+
+public class ProgressHUD {
+
+    //--------------------------------------------------------------------------
+    //
+    //  Class methods
+    //
+    //--------------------------------------------------------------------------
+
+    public static function isSupported(): Boolean {
+        return false;
+    }
+
+    public static function extensionVersion():String {
+        return null;
+    }
+
+    //--------------------------------------------------------------------------
+    //
+    //  API
+    //
+    //--------------------------------------------------------------------------
+
+    //-------------------------------------
+    //  show
+    //-------------------------------------
+
+    public static function show(): void {
+        trace("ProgressHUD is not supported for " + Capabilities.os);
+    }
+
+    //-------------------------------------
+    //  dismiss
+    //-------------------------------------
+
+    public static function dismiss(): void {
+        trace("ProgressHUD is not supported for " + Capabilities.os);
+    }
+
+    //--------------------------------------------------------------------------
+    //
+    //  Constructor
+    //
+    //--------------------------------------------------------------------------
+
+    public function ProgressHUD() {
+        super();
+    }
+
+}
+}
