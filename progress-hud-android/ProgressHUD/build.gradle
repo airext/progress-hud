@@ -3,8 +3,6 @@ apply plugin: 'com.android.library'
 android {
     compileSdkVersion 27
 
-
-
     defaultConfig {
         minSdkVersion 15
         targetSdkVersion 27
@@ -24,14 +22,27 @@ android {
 
 }
 
+configurations {
+    outgoingImplementation
+}
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation files('libs/FlashRuntimeExtensions.jar')
+
+    implementation 'com.bigkoo:svprogresshud:1.0.6'
+
+    outgoingImplementation 'com.bigkoo:svprogresshud:1.0.6'
 
     implementation 'com.android.support:appcompat-v7:27.1.1'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+}
+
+task copyOutgoingImplementation(type: Copy) {
+    from configurations.outgoingImplementation
+    into "$buildDir/libs"
 }
 
 // Create JAR
@@ -47,4 +58,4 @@ task jar(type: Jar) {
     }
 }
 
-jar.dependsOn(clearJar, build)
+jar.dependsOn(clearJar, build, copyOutgoingImplementation)

@@ -25,7 +25,7 @@ FREObject ANXProgressHUDIsSupported(FREContext context, void* functionData, uint
 FREObject ANXProgressHUDVersion(FREContext context, void* functionData, uint32_t argc, FREObject argv[]){
     NSLog(@"ANXProgressHUDVersion");
 
-    return [ANXProgressHUDConversionRoutines convertNSStringToFREObject: [NSString stringWithFormat: @"%li", (long)[SVProgressHUD version]]];
+    return [ANXProgressHUDConversionRoutines convertNSStringToFREObject: @"Unknown"];
 }
 
 

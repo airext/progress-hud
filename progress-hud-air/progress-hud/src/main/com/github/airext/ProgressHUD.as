@@ -48,7 +48,7 @@ public class ProgressHUD {
      * @return <code>true</code> if ProgressHUD is supported or <code>false</code>
      * otherwise.
      */
-    public static function isSupported(): Boolean {
+    public static function get isSupported(): Boolean {
         return context != null && context.call("isSupported");
     }
 
@@ -91,6 +91,14 @@ public class ProgressHUD {
     //  API
     //
     //--------------------------------------------------------------------------
+
+    //-------------------------------------
+    //  version
+    //-------------------------------------
+
+    public static function get version(): String {
+        return context.call("version") as String;
+    }
 
     //-------------------------------------
     //  show

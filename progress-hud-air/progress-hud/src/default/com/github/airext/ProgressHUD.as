@@ -16,7 +16,7 @@ public class ProgressHUD {
     //
     //--------------------------------------------------------------------------
 
-    public static function isSupported(): Boolean {
+    public static function get isSupported(): Boolean {
         return false;
     }
 
@@ -29,6 +29,15 @@ public class ProgressHUD {
     //  API
     //
     //--------------------------------------------------------------------------
+
+    //-------------------------------------
+    //  version
+    //-------------------------------------
+
+    public static function get version(): String {
+        trace("ProgressHUD is not supported for " + Capabilities.os);
+        return null;
+    }
 
     //-------------------------------------
     //  show

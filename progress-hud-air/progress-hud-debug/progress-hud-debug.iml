@@ -11,13 +11,16 @@
             <entry library-id="73bf4ca6-aefc-4632-9093-6c57bac940e8">
               <dependency linkage="Merged" />
             </entry>
+            <entry library-id="5bb92104-0fde-4b25-b439-d5c7efc8624a">
+              <dependency linkage="Merged" />
+            </entry>
           </entries>
           <sdk name="3.4.x" />
         </dependencies>
         <compiler-options />
         <packaging-air-desktop />
-        <packaging-android enabled="true" package-file-name="ProgressHUDDebug" />
-        <packaging-ios enabled="true" package-file-name="ProgressHUDDebug">
+        <packaging-android enabled="true" use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/ProgressHUDDebug-app.xml" package-file-name="ProgressHUDDebug" />
+        <packaging-ios enabled="true" use-generated-descriptor="false" custom-descriptor-path="$MODULE_DIR$/ProgressHUDDebug-app.xml" package-file-name="ProgressHUDDebug">
           <AirSigningOptions keystore-path="$USER_HOME$/cert/rozd/max.rozdobudko.dev.p12" provisioning-profile-path="$USER_HOME$/cert/rozd/whateverdev.mobileprovision" />
         </packaging-ios>
       </configuration>
@@ -51,6 +54,17 @@
         <JAVADOC />
         <SOURCES />
         <jarDirectory url="file://$USER_HOME$/sdks/feathers/3.4.1/frameworks/themes/MetalWorksMobileTheme" recursive="false" />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library type="flex">
+        <properties id="5bb92104-0fde-4b25-b439-d5c7efc8624a" />
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/../../bin" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+        <jarDirectory url="file://$MODULE_DIR$/../../bin" recursive="false" />
       </library>
     </orderEntry>
   </component>

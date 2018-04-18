@@ -2,4 +2,46 @@
 <f:Application xmlns:fx="http://ns.adobe.com/mxml/2009"
                xmlns:f="library://ns.feathersui.com/mxml"
                theme="feathers.themes.MetalWorksMobileTheme">
+
+    <fx:Script><![CDATA[
+        import com.github.airext.ProgressHUD;
+
+        // Helper methods
+
+        private static var outputText: ScrollText;
+        private static function log(...rest): void {
+            trace(rest);
+            outputText.text += rest + "\n";
+            outputText.verticalScrollPosition = outputText.maxVerticalScrollPosition;
+        }
+
+        ]]></fx:Script>
+
+    <f:layout>
+        <f:VerticalLayout horizontalAlign="justify" />
+    </f:layout>
+
+    <f:ScrollContainer>
+        <f:layoutData>
+            <f:VerticalLayoutData percentHeight="80" />
+        </f:layoutData>
+
+        <f:layout>
+            <f:VerticalLayout horizontalAlign="justify" verticalAlign="top" gap="10" paddingTop="20" paddingLeft="20" paddingRight="20" paddingBottom="20" />
+        </f:layout>
+
+        <f:Button label="Is Supported" triggered="log(ProgressHUD.isSupported)" />
+        <f:Button label="Extension Version" triggered="log(ProgressHUD.extensionVersion())" />
+        <f:Button label="Native Library Version" triggered="log(ProgressHUD.version)" />
+        <f:Button label="Show" triggered="log(ProgressHUD.show())" />
+        <f:Button label="Dismiss" triggered="log(ProgressHUD.dismiss())" />
+
+    </f:ScrollContainer>
+
+    <f:ScrollText initialize="outputText = event.target as ScrollText">
+        <f:layoutData>
+            <f:VerticalLayoutData percentHeight="20" />
+        </f:layoutData>
+    </f:ScrollText>
+
 </f:Application>
