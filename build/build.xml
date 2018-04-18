@@ -53,6 +53,11 @@
         <!-- Copy iOS native part for iOS platform -->
 		<copy file="temp/ios/build/Release-iphoneos/libANX${product.name}.a" todir="temp/ios" overwrite="true"/>
 		<copy file="temp/ios/build/Release-iphoneos/SVProgressHUD/libSVProgressHUD.a" todir="temp/ios" overwrite="true"/>
+        <copy todir="temp/ios/SVProgressHUD.bundle" overwrite="true">
+            <fileset dir="temp/ios/build/Release-iphoneos/SVProgressHUD.bundle">
+                <include name="**/*.*" />
+            </fileset>
+        </copy>
 
         <!-- iOS-Simulator -->
 
@@ -67,7 +72,12 @@
 
         <!-- Copy iOS native part for iOS-Simulator platform -->
         <copy file="temp/ios/build/Debug-iphonesimulator/libANX${product.name}.a" tofile="temp/ios-simulator/libANX${product.name}Simulator.a" overwrite="true"/>
-		<copy file="temp/ios/build/Debug-iphonesimulator/SVProgressHUD/libSVProgressHUD.a" todir="temp/ios" overwrite="true"/>
+		<copy file="temp/ios/build/Debug-iphonesimulator/SVProgressHUD/libSVProgressHUD.a" todir="temp/ios-simulator" overwrite="true"/>
+        <copy todir="temp/ios-simulator/SVProgressHUD.bundle" overwrite="true">
+            <fileset dir="temp/ios/build/Debug-iphonesimulator/SVProgressHUD.bundle">
+                <include name="**/*.*" />
+            </fileset>
+        </copy>
 
         <!-- Remove temporary directory for iOS artifacts -->
 		<delete dir="temp/ios/build/"/>
@@ -93,20 +103,17 @@
         <!-- Copy manifest to include it into ANE file -->
         <copy file="${android.project.dir}/src/main/AndroidManifest.xml" todir="temp/android" overwrite="true"/>
 
-        <!--&lt;!&ndash; Copy Java libraries &ndash;&gt;-->
-        <!--<copy todir="temp/android" overwrite="true">-->
-            <!--<fileset dir="${android.project.dir}/libs" includes="**/**.jar">-->
-                <!--<exclude name="ANXBridge.jar" />-->
-                <!--<exclude name="FlashRuntimeExtensions.jar" />-->
-            <!--</fileset>-->
-        <!--</copy>-->
-
-        <!--<copy todir="temp/android" file="../${project.name}-android/Vendor/HockeySDK/HockeySDK.jar" overwrite="true" />-->
-        <!--<copy todir="temp/android/res" overwrite="true">-->
-            <!--<fileset dir="../${project.name}-android/Vendor/HockeySDK/res">-->
-                <!--<include name="**/*.*" />-->
-            <!--</fileset>-->
-        <!--</copy>-->
+        <!-- Copy .aar, unzip it, copy .jar and res from it, clean up -->
+        <copy file="${android.project.dir}/build/libs/svprogresshud-1.0.6.aar" todir="temp/android" overwrite="true" />
+        <unzip src="temp/android/svprogresshud-1.0.6.aar" dest="temp/android/svprogresshud" />
+        <copy file="temp/android/svprogresshud/classes.jar" tofile="temp/android/svprogresshud.jar" />
+        <copy todir="temp/android/res" overwrite="true">
+            <fileset dir="temp/android/svprogresshud/res">
+                <include name="**/*.*" />
+            </fileset>
+        </copy>
+        <delete dir="temp/android/svprogresshud" />
+        <delete file="temp/android/svprogresshud-1.0.6.aar" />
 
         <!-- Copy Native libraries -->
         <copy todir="temp/android/libs" overwrite="true">

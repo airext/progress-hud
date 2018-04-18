@@ -1,11 +1,11 @@
 <platform xmlns="http://ns.adobe.com/air/extension/24.0">
     <description></description> 
     <packagedDependencies>
-        <packagedDependency>HockeySDK.jar</packagedDependency>
+        <packagedDependency>svprogresshud.jar</packagedDependency>
     </packagedDependencies>
     <packagedResources>
         <packagedResource>
-            <packageName>net.hockeyapp.android</packageName>
+            <packageName>com.bigkoo.svprogresshud</packageName>
             <folderName>res</folderName>
         </packagedResource>
     </packagedResources>
